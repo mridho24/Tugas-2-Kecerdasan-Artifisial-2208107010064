@@ -1,52 +1,53 @@
-# CNN Model for CIFAR-10 Classification
+# Model CNN untuk Klasifikasi CIFAR-10
 
-This project demonstrates how to build and train a Convolutional Neural Network (CNN) to classify images from the CIFAR-10 dataset using TensorFlow and Keras.
+Proyek ini menunjukkan cara membuat dan melatih model komputer (disebut CNN) yang bisa mengenali gambar dari dataset CIFAR-10. Dataset ini berisi gambar-gambar seperti pesawat, mobil, burung, kucing, dan lainnya.
 
 ## Dataset
 
-The CIFAR-10 dataset contains 60,000 32x32 color images in 10 different classes, with 6,000 images per class. The classes are:
+CIFAR-10 adalah kumpulan data yang berisi 60.000 gambar berwarna dengan ukuran 32x32 piksel. Gambar-gambar ini dibagi ke dalam 10 kategori berikut:
 
-- Airplane
-- Automobile
-- Bird
-- Cat
-- Deer
-- Dog
-- Frog
-- Horse
-- Ship
-- Truck
+- Pesawat
+- Mobil
+- Burung
+- Kucing
+- Rusa
+- Anjing
+- Kodok
+- Kuda
+- Kapal
+- Truk
 
-The dataset is split into a training set of 50,000 images and a test set of 10,000 images.
+Dataset ini dibagi menjadi 50.000 gambar untuk melatih model dan 10.000 gambar untuk menguji hasilnya.
 
-## Steps Involved
+## Langkah-langkah
 
-1. **Loading the CIFAR-10 dataset**  
-   The dataset is loaded using `tensorflow.keras.datasets.cifar10.load_data()`, which splits it into training and test images along with their corresponding labels.
+1. **Memuat Data CIFAR-10**  
+   Dataset ini dimuat dan dibagi menjadi dua bagian: data pelatihan dan data pengujian (testing).
 
-2. **Data Preprocessing**  
-   - The images are normalized to the range [0, 1].
-   - The labels are converted into one-hot encoding using `to_categorical`.
+2. **Menyiapkan Data**  
+   - Gambar-gambar dinormalisasi, artinya kita mengubah nilai warna piksel ke dalam rentang antara 0 dan 1 supaya lebih mudah diproses oleh komputer.
+   - Label atau kategori gambar diubah ke dalam format yang lebih mudah dipahami oleh model.
 
-3. **Model Architecture**  
-   A CNN model is built using the following layers:
-   - 3 convolutional layers (Conv2D) with ReLU activation.
-   - MaxPooling layers (MaxPooling2D) to downsample the feature maps.
-   - A dense fully connected layer with ReLU activation.
-   - An output layer with softmax activation to predict one of 10 classes.
+3. **Membangun Model**  
+   Kita membuat model yang disebut CNN (Convolutional Neural Network). Model ini dilatih untuk mengenali pola dalam gambar menggunakan beberapa lapisan, seperti:
+   - Lapisan untuk mengenali fitur-fitur gambar (seperti garis, bentuk, warna).
+   - Lapisan yang mengurangi ukuran gambar (pooling).
+   - Lapisan yang membuat keputusan akhir untuk menentukan kategori gambar.
 
-4. **Model Training**  
-   The model is trained for 10 epochs with a batch size of 64 using the Adam optimizer and categorical crossentropy loss.
+4. **Melatih Model**  
+   Model ini dilatih menggunakan gambar pelatihan selama 10 putaran (epoch) untuk belajar mengenali berbagai objek dengan lebih baik.
 
-5. **Model Evaluation**  
-   The training and validation accuracy and loss are plotted to visualize the model's performance.
+5. **Mengukur Hasil**  
+   Setelah pelatihan, kita melihat bagaimana akurasi model (seberapa sering model bisa menebak dengan benar) dan seberapa baik model kita bekerja saat diuji dengan data baru.
 
-6. **Model Saving**  
-   The trained model is saved in HDF5 format as `cifar10_cnn_model.h5`.
+6. **Menyimpan Model**  
+   Setelah model berhasil dilatih, kita menyimpannya ke dalam file supaya bisa digunakan lagi di masa depan tanpa harus melatihnya ulang.
 
-## Requirements
+## Persyaratan
+
+Agar bisa menjalankan proyek ini, Anda membutuhkan:
 
 - Python 3.x
-- TensorFlow
-- Matplotlib
+- TensorFlow (digunakan untuk membangun dan melatih model)
+- Matplotlib (digunakan untuk menampilkan grafik)
 
