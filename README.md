@@ -1,4 +1,4 @@
-# Model CNN untuk Klasifikasi CIFAR-10
+# Tugas-2-Kecerdasan-Artifisial-2208107010064
 
 Proyek ini menunjukkan cara membuat dan melatih model komputer (disebut CNN) yang bisa mengenali gambar dari dataset CIFAR-10. Dataset ini berisi gambar-gambar seperti pesawat, mobil, burung, kucing, dan lainnya.
 
