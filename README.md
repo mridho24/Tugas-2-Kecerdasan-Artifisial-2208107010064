@@ -1,11 +1,17 @@
 # Tugas-2-Kecerdasan-Artifisial-2208107010064
 
-Proyek ini menunjukkan cara membuat dan melatih model komputer (disebut CNN) yang bisa mengenali gambar dari dataset CIFAR-10. Dataset ini berisi gambar-gambar seperti pesawat, mobil, burung, kucing, dan lainnya.
+## Jenis Kasus
+Klasifikasi Gambar
 
-## Dataset
+## Dataset yang Digunakan
+Dataset yang digunakan adalah **CIFAR-10**, yang berisi gambar-gambar berukuran 32x32 piksel dari 10 kelas yang berbeda. Anda bisa mengunduhnya di [CIFAR-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html).
 
-CIFAR-10 adalah kumpulan data yang berisi 60.000 gambar berwarna dengan ukuran 32x32 piksel. Gambar-gambar ini dibagi ke dalam 10 kategori berikut:
+## Jumlah Fitur
+Setiap gambar pada dataset CIFAR-10 memiliki dimensi **32x32 piksel** dengan **3 saluran warna (RGB)**, sehingga jumlah fitur (input) untuk setiap gambar adalah: 3,072 fitur
 
+
+## Jumlah Label
+Dataset CIFAR-10 memiliki **10 kelas** yang berbeda, yaitu:
 - Pesawat
 - Mobil
 - Burung
@@ -17,37 +23,32 @@ CIFAR-10 adalah kumpulan data yang berisi 60.000 gambar berwarna dengan ukuran 3
 - Kapal
 - Truk
 
-Dataset ini dibagi menjadi 50.000 gambar untuk melatih model dan 10.000 gambar untuk menguji hasilnya.
+## Jenis Jaringan Saraf Tiruan yang Digunakan
+Model ini menggunakan **Convolutional Neural Network (CNN)**, yang sangat efektif untuk tugas klasifikasi gambar.
 
-## Langkah-langkah
+## Jenis Optimisasi
+Model ini menggunakan **Adam optimizer**, sebuah algoritma optimisasi yang sering digunakan dalam pelatihan jaringan saraf tiruan, karena memiliki kemampuan adaptif yang baik.
 
-1. **Memuat Data CIFAR-10**  
-   Dataset ini dimuat dan dibagi menjadi dua bagian: data pelatihan dan data pengujian (testing).
+## Jenis Fungsi Aktivasi yang Digunakan
+- **Lapisan Konvolusi & Dense Pertama:** Menggunakan fungsi aktivasi **ReLU (Rectified Linear Unit)**.
+- **Lapisan Output:** Menggunakan fungsi aktivasi **Softmax**, yang mengubah output menjadi probabilitas untuk klasifikasi multi-kelas.
 
-2. **Menyiapkan Data**  
-   - Gambar-gambar dinormalisasi, artinya kita mengubah nilai warna piksel ke dalam rentang antara 0 dan 1 supaya lebih mudah diproses oleh komputer.
-   - Label atau kategori gambar diubah ke dalam format yang lebih mudah dipahami oleh model.
+## Jumlah Hidden Layer
+- **Lapisan Konvolusi Pertama:** 32 filter
+- **Lapisan Konvolusi Kedua:** 64 filter
+- **Lapisan Konvolusi Ketiga:** 128 filter
+- **Lapisan Dense Pertama:** 128 node
 
-3. **Membangun Model**  
-   Kita membuat model yang disebut CNN (Convolutional Neural Network). Model ini dilatih untuk mengenali pola dalam gambar menggunakan beberapa lapisan, seperti:
-   - Lapisan untuk mengenali fitur-fitur gambar (seperti garis, bentuk, warna).
-   - Lapisan yang mengurangi ukuran gambar (pooling).
-   - Lapisan yang membuat keputusan akhir untuk menentukan kategori gambar.
+## Jumlah Total Hidden Node per Layer
+Total jumlah node (termasuk output) pada model ini adalah: 352 node
 
-4. **Melatih Model**  
-   Model ini dilatih menggunakan gambar pelatihan selama 10 putaran (epoch) untuk belajar mengenali berbagai objek dengan lebih baik.
+## Jumlah Total Bobot (Weight)
+Jumlah total bobot (weights) yang digunakan dalam model ini adalah **110,050**.
 
-5. **Mengukur Hasil**  
-   Setelah pelatihan, kita melihat bagaimana akurasi model (seberapa sering model bisa menebak dengan benar) dan seberapa baik model kita bekerja saat diuji dengan data baru.
+-----------------------------
 
-6. **Menyimpan Model**  
-   Setelah model berhasil dilatih, kita menyimpannya ke dalam file supaya bisa digunakan lagi di masa depan tanpa harus melatihnya ulang.
+## Deskripsi Model
+Model CNN ini terdiri dari tiga lapisan konvolusi yang dilanjutkan dengan lapisan Dense untuk klasifikasi 10 kelas gambar. Setiap lapisan konvolusi diikuti dengan lapisan pooling untuk mengurangi dimensi data, dan lapisan Dense digunakan untuk menghubungkan hasil ekstraksi fitur ke kelas output. Fungsi aktivasi ReLU digunakan untuk lapisan tersembunyi, sementara Softmax digunakan di lapisan output untuk klasifikasi multi-kelas.
 
-## Persyaratan
 
-Agar bisa menjalankan proyek ini, Anda membutuhkan:
-
-- Python 3.x
-- TensorFlow (digunakan untuk membangun dan melatih model)
-- Matplotlib (digunakan untuk menampilkan grafik)
 
