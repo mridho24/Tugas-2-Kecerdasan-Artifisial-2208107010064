@@ -50,7 +50,3 @@ The dataset is split into a training set of 50,000 images and a test set of 10,0
 - TensorFlow
 - Matplotlib
 
-To install the required packages, run the following command:
-
-```bash
-pip install tensorflow matplotlib
